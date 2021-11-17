@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <body>
+        <ui:composition template="/resources/templates/template.xhtml">
+            <ui:define name="left">
+                <h:form id="frmMenuDM">
+                    <p:panelMenu style="width: 200px; background: white;">
+                        <p:submenu label="Cadastros"
+                                   rendered="#{!((operadorController.perfilProdutor) or (operadorController.perfilCoordenador))}">
+                            <p:menuitem value="Categorias" icon="ui-icon-document"
+                                        action="cadCategoria?faces-redirect=true"
+                                        rendered="#{!operadorController.perfilProdutor}" />
+                            <p:menuitem value="Categoria índice" icon="ui-icon-document"
+                                        action="cadContratoCategoriaIndice?faces-redirect=true"/>
+
+                            <p:menuitem value="Rebaixamento lotes" icon="ui-icon-document"
+                                        action="cadRebaixamentoLotes?faces-redirect=true"/>
+
+                            <p:menuitem value="Aprova rebaixamento" icon="ui-icon-document"
+                                        action="cadRebaixamentoAprova?faces-redirect=true"/>
+
+                            <p:menuitem value="Autoriza rebaixamento" icon="ui-icon-document"
+                                        action="cadRebaixamentoAutoriza?faces-redirect=true"/>
+                        </p:submenu>
+
+                        <p:submenu label="Dia De Campo"
+                                   rendered="#{!((operadorController.perfilProdutor) or (operadorController.perfilCoordenador))}">
+                            <p:menuitem value="Novo" icon="ui-icon-document"
+                                        action="cadDiaCampo?faces-redirect=true"
+                                        actionListener="#{diaCampoCadastroController.preparaNovo()}"
+                                        rendered="#{!operadorController.perfilProdutor}" />
+                            <p:menuitem value="Listagem" icon="ui-icon-document"
+                                        action="listDiaCampo?faces-redirect=true"
+                                        rendered="#{!operadorController.perfilProdutor}" />
+                        </p:submenu>
+                        <p:submenu label="Ensaios">
+                            <p:menuitem value="Lado a lado"
+                                        action="ladoALadoListagem?faces-redirect=true" />
+                        </p:submenu>
+                        <p:submenu label="Produção de Sementes">
+                            <p:menuitem value="Recebimento" action="psRecebimentoListar?faces-redirect=true"/>
+                            <p:menuitem value="Câmara" action="psCamaraListar?faces-redirect=true"/>
+                            <p:menuitem value="Item b"/>
+                            <p:menuitem value="Item c"/>
+                            <p:menuitem value="Item d"/>
+                        </p:submenu>
+
+                        <p:submenu label="Configuração">
+                            <p:menuitem value="Lado a lado"
+                                        action="ladoALadoConfigura?faces-redirect=true" />
+                        </p:submenu>
+
+                        <p:submenu label="Sistema">
+                            <p:menuitem value="Alterar senha" icon="ui-icon-image"
+                                        action="sisAlterarSenha?faces-redirect=true" />
+                            <p:menuitem value="Logoff" icon="ui-icon-key" ajax="false"
+                                        action="#{sessionController.logout}" />
+                        </p:submenu>
+                    </p:panelMenu>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

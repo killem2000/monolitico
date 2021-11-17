@@ -1,0 +1,9 @@
+
+.selectCheckboxMenu .ui-selectcheckboxmenu{
+    top: -19px;
+    position: relative;
+}
+
+.selectCheckboxMenu button{
+    top: 19px;
+}

@@ -1,0 +1,44 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 16/12/2016, 13:10:56
+    Author     : fernando
+*/
+
+.selectOneMenu .selectLabel{
+    font-size: 12px;
+    color: #3F51B5;
+    top: -19px;
+    position: relative;
+}
+
+.selectOneRadio .selectLabel{
+    font-size: 12px;
+    color: #3F51B5;
+    top: -19px;
+    position: relative;
+}
+
+.selectManyCheckbox .selectLabel{
+    font-size: 12px;
+    color: #3F51B5;
+    top: -19px;
+    position: relative;
+}
+
+.selectCheckboxMenu .selectLabel{
+    font-size: 12px;
+    color: #3F51B5;
+    top: -19px;
+    position: relative;
+}
+
+.selectOneMenuN .selectLabel{
+    font-size: 12px;
+    color: #3F51B5;
+    position: relative;
+}
+

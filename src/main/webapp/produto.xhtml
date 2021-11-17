@@ -1,0 +1,201 @@
+<ui:composition 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/templates/template.xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+	<ui:define name="conteudo">
+        <p:panel>
+            <!-- Listagem --> 
+            <f:facet name="header">
+                <label class="label-title">
+                    Cadastro de Produtos
+                </label>
+                <h:form
+                    prependId="false"
+                    style="float: right; padding-left: 1em">
+                    <p:commandButton
+                        styleClass="green-btn" icon="fax fa fa-plus"
+                        value="Novo Produto" style="float: right" id="btnNovo"
+                        actionListener="#{produtoController.novo()}" update="frmEditar"
+                        onclick="$('#frmTabela').fadeOut();
+								$('#div_editar').fadeIn();
+								$('#btnNovo').fadeOut();" />
+
+                </h:form>
+            </f:facet>
+            <h:form 
+                id="frmTabela"
+                prependId="false">
+                <p:dataTable
+                    id="tabela"
+                    var="gru" 
+                    reflow="true"
+                    rowHover="true" 
+                    widgetVar="widTabela" 
+                    paginator="true"
+                    rows="15"
+                    paginatorPosition="bottom"
+                    emptyMessage="Não existem dados para listar..."
+                    value="#{produtoController.produtos}">
+                    <p:column 
+                        headerText="Nr." 
+                        width="5%" 
+                        styleClass="center">
+                        <h:outputLabel 
+                            value="#{gru.id}"/>
+                    </p:column>
+					<p:column 
+                        headerText="Produto" 
+                        width="5%" 
+                        styleClass="center">
+                        <h:outputLabel 
+                            value="#{gru.descricao}"/>
+                    </p:column>
+
+					<p:column 
+						headerText="Ações"
+						width="5%"
+						styleClass="center">
+						<p:commandButton
+							id="tstbtn" 
+							ajax="true" 
+							type="button"
+							icon="fa fa-ellipsis-v" />
+						<p:contextMenu
+							for="tstbtn"
+							event="click">
+							<p:menuitem 
+								value="Editar" 
+								icon="fa fa-pencil"
+								update="frmEditar"
+								onstart="$('#frmTabela').fadeOut(); $('#div_editar').fadeIn()"
+								action="#{produtoController.loadGrupoLazyData(gru)}"/>
+							<p:menuitem
+								value="Excluir"
+								icon="fa fa-trash"
+								oncomplete="dialogExcluir.show()" 
+								action="#{produtoController.setProduto(gru)}"/>
+						</p:contextMenu>
+					</p:column>
+                </p:dataTable>
+            </h:form>
+            <!-- Cadastro / edição -->
+			<div id="div_editar" style="display: none">
+                <h:form 
+                    id="frmEditar" 
+                    prependId="false">
+                    <p:focus for="descricao" />
+                    <p:fieldset
+                        legend="Produto">
+                        <p:panelGrid 
+                            layout="grid" 
+                            columns="3"
+                            styleClass="ui-panelgrid-blank form-group">
+                            <h:panelGroup 
+                                styleClass="md-inputfield">
+								<p:outputLabel 
+                                    for="descricao" 
+                                    value="Descrição:"/>
+                                <p:inputText 
+                                    id="descricao"
+                                    required="true" 
+                                    maxlength="100"
+                                    styleClass="full_size" 
+                                    value="#{produtoController.produto.descricao}"/>
+
+                            </h:panelGroup>
+
+							<h:panelGroup styleClass="md-inputfield">
+								<p:outputLabel 
+									style="padding-left: 10px"
+									value="Validade:" 
+									for="cal_validade" />
+								<p:calendar
+									id="cal_validade" 
+									showOtherMonths="true" 
+									mask="99/99/9999"
+									maskAutoClear="true"
+									pattern="dd/MM/yyyy" 
+									value="#{produtoController.produto.validade}">
+								</p:calendar>
+
+							</h:panelGroup>
+
+							<h:panelGroup 
+								styleClass="md-inputfield">
+								<p:outputLabel 
+									for="inpnumber_qtd" 
+									value="Qtd:"/>
+								<p:inputNumber
+									required="true"
+									id="inpnumber_qtd"
+									inputStyleClass="full_size"
+									decimalSeparator=","
+									decimalPlaces="3"
+									thousandSeparator="."
+									value="#{produtoController.produto.qtd}"/>
+
+							</h:panelGroup>
+                        </p:panelGrid>
+                    </p:fieldset>
+
+
+
+                    <div class="p-col-12">
+                        <p:outputPanel
+                            id="outpanel_buttons"
+                            styleClass="p-grid">
+                            <p:outputPanel 
+                                class="p-col-2">
+                                <p:commandButton 
+                                    value="Salvar"
+                                    icon="fa fa-floppy-o"
+                                    styleClass="full_size"
+                                    update=":frmTabela:tabela @form"
+									actionListener="#{produtoController.salvar()}"
+									oncomplete="$('#frmTabela').fadeIn();
+									$('#div_editar').fadeOut();
+									$('#btnNovo').fadeIn();"
+									/>
+                            </p:outputPanel>
+                            <p:outputPanel 
+                                class="p-col-2">
+                                <p:commandButton 
+                                    value="Sair" 
+                                    icon="fa fa-times" 
+                                    type="button" 
+                                    styleClass="red-btn full_size"
+                                    onclick="$('#frmTabela').fadeIn();
+											$('#div_editar').fadeOut();
+											$('#btnNovo').fadeIn();
+											$('#btnUnir').fadeIn();" />
+                            </p:outputPanel>
+                        </p:outputPanel>
+                    </div>
+                </h:form>
+            </div>
+
+        </p:panel>
+
+        <!-- Dialogs -->
+        <p:confirmDialog 
+            header="Excluir"
+            widgetVar="dialogExcluir" 
+            message="Deseja realmente excluir esse grupo?">
+            <h:form>
+                <p:commandButton
+                    value="Sim"
+                    update=":frmTabela:tabela" 
+                    oncomplete="dialogExcluir.hide(); widTabela.clearFilters()" 
+                    actionListener="#{produtoController.excluir()}"/>
+                <p:commandButton 
+                    value="Não" 
+                    type="button"
+                    onclick="dialogExcluir.hide()" />
+            </h:form>
+        </p:confirmDialog>
+
+    </ui:define>
+</ui:composition>

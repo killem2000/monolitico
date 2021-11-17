@@ -1,0 +1,116 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 11/01/2017, 10:59:43
+    Author     : fernando
+*/
+
+.logo-manager{
+    font-size: 1.8em;
+    color: floralwhite;
+    padding-top: 6px;
+}
+
+hr{
+    border:1px dashed gray;
+}
+
+.full_size{
+    width: 100%;
+}
+
+.btn-xs{
+    width: 18px !important;
+    height: 18px !important;
+    padding: 0 10px !important;
+    font-size: 0px !important;
+}
+
+.fax{
+    font-size: 16px !important;
+    margin-top: -8px !important;
+}
+
+.center{
+    text-align: center;
+}
+
+.right{
+    text-align: right;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.italic{
+    font-style: italic;
+}
+
+.label-normal{
+    color: black !important;
+    opacity: 0.6 !important;
+}
+
+.label-title{
+    float: left;
+    vertical-align: middle;
+    margin-top: 7px;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.ui-inputfield.ui-state-focus{
+    background-color: #00bcd4 !important;
+    color: white !important;
+    font-weight: bold !important;
+}
+
+.ui-selectonemenu.ui-state-focus{
+    background-color: #00bcd4 !important;
+    color: white !important;
+    font-weight: bold !important;
+}
+
+.ui-radiobutton-box.ui-state-focus{
+    background-color: #00bcd4 !important;
+    color: white !important;
+    font-weight: bold !important;
+}
+
+.ui-editable-column.ui-state-highlight{
+    background-color: #00bcd4 !important;
+    color: white !important;
+    font-weight: bold !important;
+}
+
+.hide{
+    display: none;
+}
+
+.uppercase{
+    text-transform: uppercase;
+}
+
+.ui-growl {
+    position:fixed;
+    top: 80% !important;
+    /*right: 5%;*/
+}
+
+.ui-inputgroup {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	align-items: baseline;
+}
+
+.ui-inputgroup .ui-button{
+	top: -23px;
+	left: 12px;
+}

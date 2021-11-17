@@ -1,0 +1,53 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 16/12/2016, 13:43:17
+    Author     : fernando
+*/
+
+.selectOneMenu .ui-selectonemenu{
+    top: -19px;
+    position: relative;
+    width: 100%;
+}
+
+.selectOneMenu .ui-message.ui-message-error {
+    background-color: transparent;
+    border: 0 none;
+    margin: 0px;
+    color: #e62a10;
+    font-size: 11px;
+    top: -19px;
+    position: relative;
+}
+
+.selectOneMenu .ui-message.ui-message-error .ui-message-error-icon {
+    color: #e62a10;
+    font-size: 15px;
+    top: 2px;
+}
+
+.selectOneMenu .ui-message.ui-message-error {
+    color: #e62a10;
+    font-size: 11px;
+}
+
+.selectOneMenuN .ui-selectonemenu{
+    position: relative;
+    width: 100%;
+}
+
+.ui-selectonemenu.ui-state-focus{
+    background-color: #00bcd4 !important;
+    color: white !important;
+}
+
+.ui-selectonemenu-item.ui-state-highlight{
+    background-color: #00bcd4 !important;
+    color: white !important;
+    font-weight: bold !important;
+}
+

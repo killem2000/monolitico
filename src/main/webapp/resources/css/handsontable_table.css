@@ -1,0 +1,30 @@
+.wtSpreader th{
+    border: none;
+    /*text-align: left;*/
+    font-size: 1em;
+    font-weight: inherit; /*bold;*/
+    background: #4169E1;
+    color: white;
+    text-shadow: none;
+    box-shadow: none;
+}
+
+.wtSpreader th td{
+    border: none;
+}
+
+.ht_clone_left th{
+    border: none;
+}
+
+.handsontable thead th {
+    padding: 0;
+    border: none !important;
+}
+
+tfoot {
+    display: table-footer-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+

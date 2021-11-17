@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>      
+        <h:outputScript library="js" name="locale.js"/>  
+        <h:outputScript library="js" name="handsontable.js"/> 
+        <h:outputScript library="js" name="numeral-js-pt-br.js"/>
+        <h:outputScript library="js" name="timeline.js"/>
+        <h:outputScript library="js" name="timeline-locates.js"/>       
+        <h:outputStylesheet library="css" name="default.css"/>
+        <h:outputStylesheet library="css" name="panelgrid.css"/>       
+        <f:view contentType="text/html" />
+        <title>monitor</title>                                                                         
+    </h:head>
+
+    <SCRIPT TYPE="text/javascript" LANGUAGE="javascript">
+
+        <!-- PreLoad Wait - Script -->
+        <!-- This script and more from http://www.rainbow.arch.scriptmania.com -->
+
+        function waitPreloadPage() { //DOM
+            if (document.getElementById){
+                document.getElementById('prepage').style.visibility='hidden';
+            }else{
+                if (document.layers){ //NS4
+                    document.prepage.visibility = 'hidden';
+                }else{ //IE4
+                    document.all.prepage.style.visibility = 'hidden';
+                }
+            }
+        }
+        // End -->
+    
+    </SCRIPT>
+
+    <h:body>
+        <ui:debug hotkey="K" /> 
+        <ui:include src="menu.xhtml"/>
+        <div align="center" id="geral">
+            <p:layout styleClass="faces-layout-fix">                                               
+
+                <div id="content">
+                    <p:layoutUnit  id="center1" position="center" style="height: 90%"> 
+                        <ui:insert name="conteudo">
+                            <!-- O que estiver aqui será substituido! -->
+                        </ui:insert>
+                    </p:layoutUnit> 
+                </div>
+            </p:layout>       
+        </div>
+    </h:body>
+</html>

@@ -1,0 +1,9 @@
+
+.selectManyCheckbox .ui-selectmanycheckbox{
+    top: -19px;
+    position: relative;
+}
+
+.selectManyCheckbox button{
+    top: 19px;
+}

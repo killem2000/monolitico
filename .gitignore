@@ -1,0 +1,31 @@
+*.class
+*.db
+*.backup
+
+src/main/webapp/cadastros/produtoCadastrox2.xhtml
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.war
+*.ear
+
+# hotswap tests
+nbactions.xml
+nb-configuration.xml
+nb_jr_remoting.cfg
+src/main/resources/liquibase.properties
+
+
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+/dist/
+<<<<<<< HEAD
+/build/
+/target
+=======
+/build/
+/target/
+>>>>>>> branch 'Maven' of https://georosa@github.com/Aguiar-Informatica/integrate.git

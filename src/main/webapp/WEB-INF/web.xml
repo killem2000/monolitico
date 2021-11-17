@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+    <description>Pivot4J JSF Sample Application</description>
+    <context-param>
+        <description>Project stage for the application (new in 2.0). Expects one of
+            the following values: Development, Production, SystemTest, UnitTest
+        </description>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Production</param-value>
+    </context-param>
+
+
+    <context-param>
+        <param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>primefaces.LEGACY_WIDGET_NAMESPACE</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    
+    <context-param>
+        <description>
+            If this parameter is set to true and the submitted value of a component is
+            the empty string, the submitted value will be set to null
+        </description>
+        <param-name>javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <context-param>
+        <description>Define the state method to be used. There are two different options 
+            defined by the specification: 'client' and 'server' state.
+        </description>
+        <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+        <param-value>server</param-value>
+    </context-param>
+    <context-param>
+        <param-name>javax.faces.PARTIAL_STATE_SAVING</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <context-param>
+        <param-name>org.apache.myfaces.SERIALIZE_STATE_IN_SESSION</param-name>
+        <param-value>false</param-value>
+    </context-param>
+    <context-param>
+        <param-name>primefaces.THEME</param-name>
+        <param-value>glass-x</param-value>
+    </context-param>
+    <context-param>
+            <param-name>timezone</param-name>
+            <param-value>GMT-3</param-value>
+    </context-param>
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>/faces/*</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>240</session-timeout>
+    </session-config>
+    <error-page>
+        <exception-type>javax.faces.application.ViewExpiredException</exception-type>
+        <location>/login.xhtml</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/naoencontrada.xhtml</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/erro.xhtml</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/erro.xhtml</location>
+    </error-page>
+    <welcome-file-list>
+        <welcome-file>faces/login.xhtml</welcome-file>
+    </welcome-file-list>    
+    <filter>
+        <filter-name>PrimeFaces FileUpload Filter</filter-name>
+        <filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>PrimeFaces FileUpload Filter</filter-name>
+        <servlet-name>Faces Servlet</servlet-name>
+    </filter-mapping>
+    
+</web-app>
